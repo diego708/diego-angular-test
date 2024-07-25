@@ -1,0 +1,110 @@
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4><b>Editar Tarefa</b></h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="#" routerLink="/Home" class="btn btn-success back"><i
+                                class='fas fa-arrow-circle-left'></i>
+                            Voltar</a>
+                    </div>
+                </div>
+            </div>
+            <form #taskForm="ngForm">
+                <div class="table-content">
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label for="Title" class="p-t-b-10">Título<span
+                                    class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="Title" required maxlength="255"
+                                [(ngModel)]="editTaskForm.Title" name="Title" #Title="ngModel">
+                            <div *ngIf="Title.errors && isSubmitted" class="alert alert-danger validationError">
+                                <div [hidden]="!Title.errors?.['required']">
+                                    O campo título é obrigatório.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label for="Description" class="p-t-b-10">Descrição<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="Description" required maxlength="255"
+                                [(ngModel)]="editTaskForm.Description" name="Description" #Description="ngModel">
+                            <div *ngIf="Description.errors && isSubmitted" class="alert alert-danger validationError">
+                                <div [hidden]="!Description.errors?.['required']">
+                                    O campo descrição é obrigatório.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label class="p-t-b-10">Data de criação<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="CreationDate" required maxlength="255"
+                                [(ngModel)]="editTaskForm.CreationDate" name="CreationDate" #CreationDate="ngModel" readonly>
+                            <div *ngIf="CreationDate.errors && isSubmitted" class="alert alert-danger validationError">
+                                <div [hidden]="!CreationDate.errors?.['required']">
+                                    O campo data de criação é obrigatório.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label class="p-t-b-10">Data de conclusão<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="ConclusionDate" required maxlength="255"
+                                [(ngModel)]="editTaskForm.ConclusionDate" name="ConclusionDate" #ConclusionDate="ngModel" readonly>
+                            <div *ngIf="ConclusionDate.errors && isSubmitted" class="alert alert-danger validationError">
+                                <div [hidden]="!ConclusionDate.errors?.['required']">
+                                    O campo data de conclusão é obrigatório.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label class="p-t-b-10">Responsável<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="Responsible" required maxlength="10"
+                                [(ngModel)]="editTaskForm.Responsible" name="Responsible" #Responsible="ngModel">
+                            <div *ngIf="Responsible.errors && isSubmitted" class="alert alert-danger validationError">
+                                <div [hidden]="!Responsible.errors?.['required']">
+                                    O campo responsável é obrigatório.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label class="p-t-b-10">Status<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="Status" required maxlength="10"
+                                [(ngModel)]="editTaskForm.Status" name="Status" #Status="ngModel">
+                            <div *ngIf="Status.errors && isSubmitted" class="alert alert-danger validationError">
+                                <div [hidden]="!Status.errors?.['required']">
+                                    O campo status é obrigatório.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-footer">
+                    <button class="btn btn-success" (click)="EditTask(taskForm.form.valid)">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
